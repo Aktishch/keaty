@@ -23,7 +23,7 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
       backgroundColor: theme('colors.white.DEFAULT'),
       padding: 'calc(var(--tw-input-size) / 4) calc(var(--tw-input-size) / 3)',
       border: '1px solid var(--tw-input-color)',
-      borderRadius: theme('borderRadius.lg'),
+      borderRadius: theme('borderRadius.md'),
       transition: '200ms ease',
       userSelect: 'initial',
       '&:focus': {

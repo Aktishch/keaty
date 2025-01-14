@@ -8,7 +8,6 @@ const createColor = (variable) => {
 
 module.exports = {
   content: ['./src/**/*.html', './src/ts/**/*.ts'],
-  darkMode: ['class', '[data-theme="dark"]'],
   corePlugins: {
     container: false,
   },
@@ -28,7 +27,7 @@ module.exports = {
       xs: 28,
       sm: 36,
       md: 40,
-      lg: 45,
+      lg: 46,
       xl: 56,
       xxl: 64,
     },
@@ -54,18 +53,17 @@ module.exports = {
       grey: {
         DEFAULT: createColor('grey'),
       },
-      dark: {
-        DEFAULT: createColor('dark'),
-      },
-      red: {
-        DEFAULT: createColor('red'),
+      blue: {
+        DEFAULT: createColor('blue'),
       },
       green: {
         DEFAULT: createColor('green'),
       },
+      yellow: {
+        DEFAULT: createColor('yellow'),
+      },
     },
     fontFamily: {
-      alt: 'var(--font-alt)',
       base: 'var(--font-base)',
     },
     gridColumn: {
@@ -107,15 +105,20 @@ module.exports = {
         '2.5xl': ['1.75rem', '2.125rem'],
       },
       borderRadius: {
+        '2.5xl': '1.25rem',
+        '3xl': '1.75rem',
+        '3.5xl': '2rem',
+        '4xl': '2.5rem',
+        '5xl': '3.375rem',
         inherit: 'inherit',
       },
     },
   },
   plugins: [
     require('./plugins/pack'),
-    require('./plugins/input'),
+    // require('./plugins/input'),
     require('./plugins/button'),
     require('./plugins/animation'),
-    require('./plugins/pointer-coarse'),
+    // require('./plugins/pointer-coarse'),
   ],
 }
