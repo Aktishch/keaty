@@ -2,7 +2,7 @@
 // import sliderSwiper from './ts/slider-swiper'
 // import yandexMap from './ts/yandex-map'
 // import airDatepicker from './ts/air-datepicker'
-// import smoothScroll from './ts/smooth-scroll'
+import smoothScroll from './ts/smooth-scroll'
 import scrollHeader from './ts/scroll-header'
 import currentTab from './ts/current-tab'
 // import currentYear from './ts/current-year'
@@ -17,7 +17,7 @@ import currentTab from './ts/current-tab'
 // import pallete from './ts/pallete'
 // import snowflakes from './ts/snowflakes'
 // import runningButton from './ts/running-button'
-// import animation from './ts/animation'
+import animation from './ts/animation'
 import waved from './ts/waved'
 // import movement from './ts/movement'
 // import inverted from './ts/inverted'
@@ -65,7 +65,7 @@ window.addEventListener('DOMContentLoaded', ((): void => {
   // airDatepicker()
   currentTab()
   // currentYear()
-  // smoothScroll()
+  smoothScroll()
   scrollHeader()
   // sidebar()
   // menu()
@@ -78,7 +78,7 @@ window.addEventListener('DOMContentLoaded', ((): void => {
   // pallete()
   // snowflakes()
   // runningButton()
-  // animation()
+  animation()
   waved()
   // movement()
   // inverted()

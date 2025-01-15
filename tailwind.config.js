@@ -24,7 +24,7 @@ module.exports = {
       xxl: '2499.98px',
     },
     constants: {
-      xs: 28,
+      xs: 30,
       sm: 36,
       md: 40,
       lg: 46,
