@@ -10,12 +10,12 @@ export default (): void => {
   const scrollHeader = (): void => {
     const currentOffsetTop: number = scrolledPage().top
 
-    if (header.offsetHeight / 2 < currentOffsetTop) {
+    if (header.offsetHeight / 4 < currentOffsetTop) {
       header.classList.remove('bg-opacity-0')
-      header.classList.add('shadow')
+      header.classList.add('-translate-y-20', 'shadow')
     } else {
       header.classList.add('bg-opacity-0')
-      header.classList.remove('shadow')
+      header.classList.remove('-translate-y-20', 'shadow')
     }
 
     prevOffsetTop = currentOffsetTop

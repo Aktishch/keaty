@@ -1,7 +1,30 @@
 <%
   var data = {
     title: 'Keaty',
-    status: true
+    status: true,
+    social: ['img/pictures/google-play', 'img/pictures/app-store', 'img/pictures/ru-store'],
+    nav: [
+      {
+        id: 'home',
+        text: 'Главная'
+      },
+      {
+        id: 'message',
+        text: 'Сообщения'
+      },
+      {
+        id: 'service',
+        text: 'Услуги'
+      },
+      {
+        id: 'bell',
+        text: 'Уведомления'
+      },
+      {
+        id: 'recording',
+        text: 'Записи'
+      }
+    ] 
   }
 
   var icon = _.template(require('./components/icon.html').default)
@@ -15,30 +38,7 @@
 
 <!-- Первоначальный блок -->
 
-<% var primal = [
-  {
-    id: 'home',
-    text: 'Главная'
-  },
-  {
-    id: 'message',
-    text: 'Сообщения'
-  },
-  {
-    id: 'service',
-    text: 'Услуги'
-  },
-  {
-    id: 'bell',
-    text: 'Уведомления'
-  },
-  {
-    id: 'recording',
-    text: 'Записи'
-  }
-] %>
-
-<section class="container relative overflow-hidden pb-0" data-smooth-wrapper>
+<section class="container relative overflow-hidden pb-0 pt-36">
   <div class="absolute inset-0 bg-second">
     <%= loader %>
     <%= picture({src: 'img/pictures/primal-bg', format: 'jpg', className: 'image', data: null}) %>
@@ -60,7 +60,7 @@
                 Скачать приложение
               </p>
               <div class="flex items-center justify-center gap-6">
-                <% _.forEach((['img/pictures/google-play', 'img/pictures/app-store', 'img/pictures/ru-store']), (item) => { %>
+                <% _.forEach((data.social), (item) => { %>
                 <a class="btn btn-primary rounded-xl" data-waved="light" draggable="false" href="" target="_blank">
                   <%= picture({src: item, format: 'svg', className: 'icon text-5xl', data: null}) %>
                 </a>
@@ -74,7 +74,7 @@
     <div class="relative w-full min-w-72 max-w-72 md:max-w-[450px] -mb-36 md:-mb-48 pointer-events-none">
       <%= picture({src: 'img/pictures/leaves', format: 'svg', className: 'absolute w-64 md:w-[595px] max-w-none bottom-0 -left-32 md:-left-60', data: null}) %>
       <%= picture({src: 'img/pictures/leaves', format: 'svg', className: 'absolute w-64 md:w-[595px] max-w-none bottom-0 -right-32 md:-right-60', data: null}) %>
-      <div class="absolute w-full max-w-[72px] md:max-w-28 -top-6 xl:-top-14 -left-10 md:-left-14" data-smooth-layer="bottom" data-smooth-speed="1" data-smooth-depth="2">
+      <div class="absolute w-full max-w-[72px] md:max-w-28 -top-6 xl:-top-14 -left-10 md:-left-14" data-smooth-layer="bottom" data-smooth-speed="1" data-smooth-depth="3">
         <div class="card border border-solid border-white bg-gradient-to-tl from-white/50 to-white/70 bg-transparent backdrop-blur-xl shadow rounded-xl md:rounded-2.5xl">
           <div class="card-content items-center justify-center text-center py-2 md:py-3 px-1 md:px-2">
             <div class="relative size-5 md:size-8 rounded-full bg-second overflow-hidden mb-0.5 md:mb-1">
@@ -92,7 +92,7 @@
           </div>
         </div>
       </div>
-      <div class="absolute w-full max-w-36 md:max-w-56 -left-10 md:-left-16 xl:-left-36 top-36 md:top-56" data-smooth-layer="bottom" data-smooth-speed="1" data-smooth-depth="2">
+      <div class="absolute w-full max-w-36 md:max-w-56 -left-10 md:-left-16 xl:-left-36 top-36 md:top-56" data-smooth-layer="bottom" data-smooth-speed="1" data-smooth-depth="3">
         <div class="card border border-solid border-white bg-gradient-to-r from-white/70 to-white bg-transparent backdrop-blur-xl shadow rounded-xl md:rounded-2.5xl">
           <div class="card-content py-3 md:py-5">
             <b class="text-sm md:text-xl b-1 md:text-center px-4 pb-3 md:pb-5 border-b border-solid border-grey/50 mb-3 md:mb-5">
@@ -172,7 +172,7 @@
                 <div class="anim anim-right duration-500 ease-in-out" data-anim>
                   <div class="card rounded-xl md:rounded-2xl border-2 border-solid border-white bg-gradient-to-tl from-white/80 to-white bg-transparent backdrop-blur-xl shadow-md -left-8 md:-left-20">
                     <div class="card-content flex-row items-center justify-between gap-2 px-3 md:px-4 py-2 md:py-3">
-                      <% _.forEach((primal), (item, key) => { %>
+                      <% _.forEach((data.nav), (item, key) => { %>
                       <div class="flex flex-col items-center justify-center <%= key === 0 ? 'text-primary' : 'text-gray' %>">
                         <%= icon({id: item.id, className: 'icon text-sm md:text-1.5xl mb-1 md:mb-2', data: null}) %>
                         <span class="text-center font-medium text-min md:text-xs"><%= item.text %></span>
@@ -186,7 +186,7 @@
           </div>
         </div>
       </div>
-      <div class="absolute w-full max-w-48 md:max-w-72 -right-24 md:-right-40 top-20 md:top-24" data-smooth-layer="top" data-smooth-speed="1" data-smooth-depth="2">
+      <div class="absolute w-full max-w-48 md:max-w-72 -right-24 md:-right-40 top-20 md:top-24" data-smooth-layer="top" data-smooth-speed="1" data-smooth-depth="3">
         <div class="card border border-solid border-white bg-gradient-to-r from-white/70 to-white bg-transparent backdrop-blur-xl shadow rounded-xl md:rounded-2.5xl">
           <div class="card-content p-4 md:p-6">
             <div class="flex items-center mb-2 md:mb-3">
@@ -209,6 +209,144 @@
               <button class="btn btn-primary btn-xs md:btn-lg btn-fill text-xxs md:text-base grow px-1 md:px-2" data-waved="light">Новая запись</button>
               <button class="btn btn-grey btn-xs md:btn-lg btn-fade grow px-1 md:px-2 text-black text-xxs md:text-base" data-waved="dark">Скрыть</button>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Самый простой путь к совершенству -->
+
+<section class="container relative overflow-hidden pb-[400px]">
+  <div class="absolute inset-0 bg-second">
+    <%= loader %>
+    <%= picture({src: 'img/pictures/perfection-bg', format: 'jpg', className: 'image', data: null}) %>
+  </div>
+  <div class="relative flex items-center justify-between gap-8">
+    <div class="w-full relative max-w-[500px]">
+      <div class="pack pack-[105] bg-second rounded-6xl">
+        <%= loader %>
+        <%= picture({src: 'img/pictures/perfection-img', format: 'jpg', className: 'image', data: null}) %>
+        <div class="absolute w-full max-w-[375px] top-10 left-10" data-smooth-layer="top" data-smooth-speed="1" data-smooth-depth="4">
+          <div class="card rounded-3xl">
+            <div class="card-content">
+              <div class="pt-6 px-4">
+                <div class="flex items-center justify-between gap-4 mb-8">
+                  <div class="size-8 rounded-full bg-second overflow-hidden shrink-0 relative">
+                    <%= picture({src: 'img/pictures/test', format: 'jpg', className: 'image', data: null}) %>
+                  </div>
+                  <b class="text-lg">Услуги</b>
+                  <span class="w-8 shrink-0"></span>
+                </div>
+                <h3 class="font-bold text-xl mb-5">
+                  Выберите услугу
+                </h3>
+                <div class="overflow-hidden h-[550px]">
+                  <div class="grid grid-cols-2 gap-2">
+                    <% for (var i = 0; i < 6; i++) { %>
+                    <% if (i === 2 || i === 4) { %>
+                    <span></span>
+                    <% } else { %>
+                    <div class="card rounded-2xl border border-solid border-grey/50">
+                      <div class="pack pack-[85] bg-second">
+                        <%= loader %>
+                        <%= picture({src: 'img/pictures/test', format: 'jpg', className: 'image', data: null}) %>
+                      </div>
+                      <div class="card-content p-2">
+                        <h4 class="text-center font-semibold text-base">
+                          Ресницы
+                        </h4>
+                      </div>
+                    </div>
+                    <% } %>
+                    <% } %>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center justify-between gap-2 px-3 md:px-4 py-2 md:py-3 border-t border-solid border-grey/50">
+                <% _.forEach((data.nav), (item, key) => { %>
+                <div class="flex flex-col items-center justify-center <%= key === 2 ? 'text-primary' : 'text-gray' %>">
+                  <%= icon({id: item.id, className: 'icon text-sm md:text-1.5xl mb-1 md:mb-2', data: null}) %>
+                  <span class="text-center font-medium text-min md:text-xs"><%= item.text %></span>
+                </div>
+                <% }) %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="absolute w-full max-w-[375px] -top-40 -right-32" data-smooth-layer="bottom" data-smooth-speed="1" data-smooth-depth="4">
+          <div class="card rounded-3xl">
+            <div class="card-content py-6 px-4">
+              <div class="flex items-center justify-between gap-4 mb-8">
+                <%= icon({id: 'arrow-back', className: 'icon text-xl', data: null}) %>
+                <b class="text-lg">Волосы</b>
+                <%= icon({id: 'filters', className: 'icon text-xl', data: null}) %>
+              </div>
+              <h3 class="font-bold text-xl mb-[88px]">
+                Выберите мастера
+              </h3>
+              <div class="card rounded-2xl border border-solid border-grey/50">
+                <div class="card-content p-4">
+                  <div class="flex pb-3 mb-3 border-b border-solid border-grey/50">
+                    <div class="size-10 shrink-0 rounded-full bg-second relative overflow-hidden mr-3">
+                      <%= picture({src: 'img/pictures/test', format: 'jpg', className: 'image', data: null}) %>
+                    </div>
+                    <div class="flex flex-col">
+                      <h4 class="font-semibold text-base">
+                        Анастасия Константинова
+                      </h4>
+                      <p class="font-normal opacity-40 text-sm mb-2">
+                        г. Краснодар
+                      </p>
+                      <p class="font-normal text-sm mb-3">
+                        Комплексный уход за волосами
+                      </p>
+                      <div class="flex items-center gap-1.5 tesx-sm font-semibold">
+                        <%= icon({id: 'star', className: 'icon text-yellow', data: null}) %>
+                        <span>5.0</span>
+                        <span class="opacity-50 pb-2">.</span>
+                        <span>8 отзывов</span>
+                      </div>
+                    </div>
+                  </div>
+                  <h4 class="font-semibold text-base mb-2">
+                    Работы мастера
+                  </h4>
+                  <div class="grid grid-cols-5 gap-1 pb-3 mb-3 border-b border-solid border-grey/50">
+                    <% for (var i = 0; i < 5; i++) { %>
+                    <div class="col-1">
+                      <div class="pack pack-xxl bg-second rounded-md">
+                        <%= picture({src: 'img/pictures/test', format: 'jpg', className: 'image', data: null}) %>
+                      </div>
+                    </div>
+                    <% } %>
+                  </div>
+                  <div class="flex items-center gap-1 text-base font-normal mb-3">
+                    <%= picture({src: 'img/pictures/fire', format: 'svg', className: 'icon', data: null}) %>
+                    <span>Ближайшая запись:</span>
+                    <span class="font-semibold">07.01 с 08:00</span>
+                  </div>
+                  <div class="grid grid-cols-2 gap-1 md:gap-3">
+                    <button class="btn btn-grey btn-xs md:btn-lg btn-fade px-1 md:px-2 text-black text-xxs md:text-base" data-waved="dark">Подробнее</button>
+                    <button class="btn btn-primary btn-xs md:btn-lg btn-fill text-xxs md:text-base px-1 md:px-2" data-waved="light">Записаться</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute w-full max-w-48 left-6 -bottom-12" data-smooth-layer="top" data-smooth-speed="1" data-smooth-depth="4">
+        <div class="card rounded-2xl border border-solid border-grey/50">
+          <div class="pack pack-[85] bg-second">
+            <%= loader %>
+            <%= picture({src: 'img/pictures/test', format: 'jpg', className: 'image', data: null}) %>
+          </div>
+          <div class="card-content p-2">
+            <h4 class="text-center font-semibold text-base">
+              Ресницы
+            </h4>
           </div>
         </div>
       </div>

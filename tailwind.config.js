@@ -110,6 +110,7 @@ module.exports = {
         '3.5xl': '2rem',
         '4xl': '2.5rem',
         '5xl': '3.375rem',
+        '6xl': '4rem',
         inherit: 'inherit',
       },
     },
