@@ -23,7 +23,7 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
       backgroundColor: theme('colors.white.DEFAULT'),
       padding: 'calc(var(--tw-input-size) / 4) calc(var(--tw-input-size) / 3)',
       border: '1px solid var(--tw-input-color)',
-      borderRadius: theme('borderRadius.md'),
+      borderRadius: theme('borderRadius.xl'),
       transition: '200ms ease',
       userSelect: 'initial',
       '&:focus': {
@@ -36,9 +36,6 @@ module.exports = plugin(({ addComponents, matchComponents, theme }) => {
       '&-fade': {
         '--tw-input-text': theme('colors.white.DEFAULT'),
         backgroundColor: theme('colors.transparent'),
-      },
-      '&&-error': {
-        '--tw-input-color': theme('colors.red.DEFAULT'),
       },
       '&:-webkit-autofill': {
         color: 'var(--tw-input-text) !important',

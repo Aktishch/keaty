@@ -30,6 +30,7 @@
   var icon = _.template(require('./components/icon.html').default)
   var picture = _.template(require('./components/picture.html').default)
   var loader = _.template(require('./components/loader.html').default)({icon})
+  var title = _.template(require('./components/title.html').default)
   var header = _.template(require('./includes/header.html').default)({data, icon, picture})
   var footer = _.template(require('./includes/footer.html').default)({loader, picture})
 %>
@@ -71,7 +72,7 @@
         </div>
       </div>
     </div>
-    <div class="relative w-full min-w-72 max-w-72 md:max-w-[450px] -mb-36 md:-mb-48 pointer-events-none">
+    <div class="relative w-full min-w-72 max-w-72 md:max-w-[450px] -mb-36 md:-mb-48 pointer-events-none lg:shrink-0">
       <%= picture({src: 'img/pictures/leaves', format: 'svg', className: 'absolute w-64 md:w-[595px] max-w-none bottom-0 -left-32 md:-left-60', data: null}) %>
       <%= picture({src: 'img/pictures/leaves', format: 'svg', className: 'absolute w-64 md:w-[595px] max-w-none bottom-0 -right-32 md:-right-60', data: null}) %>
       <div class="absolute w-full max-w-[72px] md:max-w-28 -top-6 xl:-top-14 -left-10 md:-left-14" data-smooth-layer="bottom" data-smooth-speed="1" data-smooth-depth="3">
@@ -223,38 +224,38 @@
     <%= loader %>
     <%= picture({src: 'img/pictures/perfection-bg', format: 'jpg', className: 'image', data: null}) %>
   </div>
-  <div class="relative flex items-center justify-between gap-8">
-    <div class="w-full relative max-w-[500px]">
-      <div class="pack pack-[105] bg-second rounded-6xl">
+  <div class="relative flex flex-col lg:flex-row items-center lg:justify-between gap-8 lg:gap-24">
+    <div class="w-full relative max-w-80 md:max-w-[500px] pointer-events-none lg:shrink-0 order-2 lg:order-1">
+      <div class="pack pack-[105] bg-second rounded-4xl md:rounded-6xl">
         <%= loader %>
-        <%= picture({src: 'img/pictures/perfection-img', format: 'jpg', className: 'image', data: null}) %>
-        <div class="absolute w-full max-w-[375px] top-10 left-10" data-smooth-layer="top" data-smooth-speed="1" data-smooth-depth="4">
-          <div class="card rounded-3xl">
+        <%= picture({src: 'img/pictures/perfection-img', format: 'jpg', className: 'image rounded-4xl md:rounded-6xl', data: null}) %>
+        <div class="absolute w-full max-w-60 md:max-w-[375px] top-40 md:top-10 left-6 md:left-10" data-smooth-layer="top" data-smooth-speed="1" data-smooth-depth="4">
+          <div class="card rounded-2xl md:rounded-3xl">
             <div class="card-content">
-              <div class="pt-6 px-4">
-                <div class="flex items-center justify-between gap-4 mb-8">
-                  <div class="size-8 rounded-full bg-second overflow-hidden shrink-0 relative">
+              <div class="pt-4 md:pt-6 px-2 md:px-4">
+                <div class="flex items-center justify-between gap-4 mb-5 md:mb-8">
+                  <div class="size-5 md:size-8 rounded-full bg-second overflow-hidden shrink-0 relative">
                     <%= picture({src: 'img/pictures/test', format: 'jpg', className: 'image', data: null}) %>
                   </div>
-                  <b class="text-lg">Услуги</b>
-                  <span class="w-8 shrink-0"></span>
+                  <b class="text-xs md:text-lg">Услуги</b>
+                  <span class="w-5 md:w-8 shrink-0"></span>
                 </div>
-                <h3 class="font-bold text-xl mb-5">
+                <h3 class="font-bold text-sm md:text-xl mb-3 sm:mb-5">
                   Выберите услугу
                 </h3>
-                <div class="overflow-hidden h-[550px]">
-                  <div class="grid grid-cols-2 gap-2">
+                <div class="overflow-hidden h-80 md:h-[550px]">
+                  <div class="grid grid-cols-2 gap-1 md:gap-2">
                     <% for (var i = 0; i < 6; i++) { %>
                     <% if (i === 2 || i === 4) { %>
                     <span></span>
                     <% } else { %>
-                    <div class="card rounded-2xl border border-solid border-grey/50">
+                    <div class="card rounded-xl md:rounded-2xl border border-solid border-grey/50">
                       <div class="pack pack-[85] bg-second">
                         <%= loader %>
                         <%= picture({src: 'img/pictures/test', format: 'jpg', className: 'image', data: null}) %>
                       </div>
-                      <div class="card-content p-2">
-                        <h4 class="text-center font-semibold text-base">
+                      <div class="card-content px-2 py-1 md:py-2">
+                        <h4 class="text-center font-semibold text-xxs md:text-base">
                           Ресницы
                         </h4>
                       </div>
@@ -264,7 +265,7 @@
                   </div>
                 </div>
               </div>
-              <div class="flex items-center justify-between gap-2 px-3 md:px-4 py-2 md:py-3 border-t border-solid border-grey/50">
+              <div class="flex items-center justify-between gap-2 px-2 md:px-4 py-2 md:py-3 border-t border-solid border-grey/50">
                 <% _.forEach((data.nav), (item, key) => { %>
                 <div class="flex flex-col items-center justify-center <%= key === 2 ? 'text-primary' : 'text-gray' %>">
                   <%= icon({id: item.id, className: 'icon text-sm md:text-1.5xl mb-1 md:mb-2', data: null}) %>
@@ -275,34 +276,34 @@
             </div>
           </div>
         </div>
-        <div class="absolute w-full max-w-[375px] -top-40 -right-32" data-smooth-layer="bottom" data-smooth-speed="1" data-smooth-depth="4">
-          <div class="card rounded-3xl">
-            <div class="card-content py-6 px-4">
-              <div class="flex items-center justify-between gap-4 mb-8">
-                <%= icon({id: 'arrow-back', className: 'icon text-xl', data: null}) %>
-                <b class="text-lg">Волосы</b>
-                <%= icon({id: 'filters', className: 'icon text-xl', data: null}) %>
+        <div class="absolute w-full max-w-60 md:max-w-[375px] -top-40 -right-20 md:-right-32" data-smooth-layer="bottom" data-smooth-speed="1" data-smooth-depth="4">
+          <div class="card rounded-2xl md:rounded-3xl">
+            <div class="card-content py-4 md:py-6 px-2 md:px-4">
+              <div class="flex items-center justify-between gap-4 mb-6 md:mb-8">
+                <%= icon({id: 'arrow-back', className: 'icon text-xss md:text-xl', data: null}) %>
+                <b class="text-xs md:text-lg">Волосы</b>
+                <%= icon({id: 'filters', className: 'icon text-xss md:text-xl', data: null}) %>
               </div>
-              <h3 class="font-bold text-xl mb-[88px]">
+              <h3 class="font-bold text-xs md:text-xl mb-14 md:mb-[88px]">
                 Выберите мастера
               </h3>
-              <div class="card rounded-2xl border border-solid border-grey/50">
-                <div class="card-content p-4">
-                  <div class="flex pb-3 mb-3 border-b border-solid border-grey/50">
-                    <div class="size-10 shrink-0 rounded-full bg-second relative overflow-hidden mr-3">
+              <div class="card rounded-xl md:rounded-2xl border border-solid border-grey/50">
+                <div class="card-content p-2 md:p-4">
+                  <div class="flex pb-2 md:pb-3 mb-2 md:mb-3 border-b border-solid border-grey/50">
+                    <div class="size-8 md:size-10 shrink-0 rounded-full bg-second relative overflow-hidden mr-2 md:mr-3">
                       <%= picture({src: 'img/pictures/test', format: 'jpg', className: 'image', data: null}) %>
                     </div>
                     <div class="flex flex-col">
-                      <h4 class="font-semibold text-base">
+                      <h4 class="font-semibold text-xxs md:text-base">
                         Анастасия Константинова
                       </h4>
-                      <p class="font-normal opacity-40 text-sm mb-2">
+                      <p class="font-normal opacity-40 text-min md:text-sm mb-1 md:mb-2">
                         г. Краснодар
                       </p>
-                      <p class="font-normal text-sm mb-3">
+                      <p class="font-normal text-min md:text-sm mb-2 md:mb-3">
                         Комплексный уход за волосами
                       </p>
-                      <div class="flex items-center gap-1.5 tesx-sm font-semibold">
+                      <div class="flex items-center gap-1 md:gap-1.5 text-min md:text-sm font-semibold">
                         <%= icon({id: 'star', className: 'icon text-yellow', data: null}) %>
                         <span>5.0</span>
                         <span class="opacity-50 pb-2">.</span>
@@ -310,10 +311,10 @@
                       </div>
                     </div>
                   </div>
-                  <h4 class="font-semibold text-base mb-2">
+                  <h4 class="font-semibold text-xxs md:text-base mb-1 md:mb-2">
                     Работы мастера
                   </h4>
-                  <div class="grid grid-cols-5 gap-1 pb-3 mb-3 border-b border-solid border-grey/50">
+                  <div class="grid grid-cols-5 gap-1 pb-2 md:pb-3 mb-2 md:mb-3 border-b border-solid border-grey/50">
                     <% for (var i = 0; i < 5; i++) { %>
                     <div class="col-1">
                       <div class="pack pack-xxl bg-second rounded-md">
@@ -322,7 +323,7 @@
                     </div>
                     <% } %>
                   </div>
-                  <div class="flex items-center gap-1 text-base font-normal mb-3">
+                  <div class="flex items-center gap-1 text-xxs md:text-base font-normal mb-2 md:mb-3">
                     <%= picture({src: 'img/pictures/fire', format: 'svg', className: 'icon', data: null}) %>
                     <span>Ближайшая запись:</span>
                     <span class="font-semibold">07.01 с 08:00</span>
@@ -337,16 +338,37 @@
           </div>
         </div>
       </div>
-      <div class="absolute w-full max-w-48 left-6 -bottom-12" data-smooth-layer="top" data-smooth-speed="1" data-smooth-depth="4">
-        <div class="card rounded-2xl border border-solid border-grey/50">
+      <div class="absolute w-full max-w-32 md:max-w-48 left-2 md:left-6 top-96 md:top-auto md:-bottom-12" data-smooth-layer="top" data-smooth-speed="1" data-smooth-depth="4">
+        <div class="card rounded-xl md:rounded-2xl border border-solid border-grey/50">
           <div class="pack pack-[85] bg-second">
             <%= loader %>
             <%= picture({src: 'img/pictures/test', format: 'jpg', className: 'image', data: null}) %>
           </div>
-          <div class="card-content p-2">
-            <h4 class="text-center font-semibold text-base">
+          <div class="card-content px-2 py-1 md:py-2">
+            <h4 class="text-center font-semibold text-xxs md:text-base">
               Ресницы
             </h4>
+          </div>
+        </div>
+      </div>
+      <div class="absolute -top-20 md:-top-8 -right-2 md:-right-14 w-full max-w-40 md:max-w-72" data-smooth-layer="bottom" data-smooth-speed="1" data-smooth-depth="4">
+        <input class="input input-xs md:input-lg input-grey text-xxs md:text-base rounded-lg md:rounded-xl border border-solid border-grey/50 pl-8 md:pl-10" type="text" placeholder="Поиск мастера">
+        <div class="absolute top-0 left-0 bottom-0 flex items-center justify-center pointer-events-none w-8 md:w-10">
+          <%= icon({id: 'search', className: 'icon text-base md:text-2xl opacity-40', data: null}) %>
+        </div>
+      </div>
+    </div>
+    <div class="w-full lg:max-w-[555px] relative order-1 lg:order-2">
+      <%= title({text: 'Самый <span class="text-grey animate-pulse">простой</span> путь к совершенству', className: 'mb-4 sm:mb-6 anim anim-up duration-500 ease-in-out', data: 'data-anim'}) %>
+      <p class="font-normal text-base/normal opacity-60 mb-6 sm:mb-10 lg:mb-14 anim anim-up duration-500 ease-in-out" data-anim>
+        Удобный интерфейс и простой функционал позволяют быстро и без проблем записаться к нужному специалисту. Наше приложение предлагает удобный поиск по категориям услуг и рейтингу мастеров, а также дает возможность изучить портфолио и отзывы о работе специалистов!
+      </p>
+      <div class="flex anim anim-up duration-500 ease-in-out" data-anim>
+        <div class="card rounded-2xl border border-solid border-white bg-gradient-to-tl from-white/50 to-white/70 bg-transparent backdrop-blur-xl">
+          <div class="card-content flex-row items-center justify-between gap-6 py-4 px-6">
+            <% for (var i = 0; i < 5; i++) { %>
+            <%= picture({src: `img/perfection/${i + 1}`, format: 'png', className: 'icon text-2xl sm:text-3xl', data: null}) %>
+            <% } %>
           </div>
         </div>
       </div>

@@ -117,7 +117,7 @@ module.exports = {
   },
   plugins: [
     require('./plugins/pack'),
-    // require('./plugins/input'),
+    require('./plugins/input'),
     require('./plugins/button'),
     require('./plugins/animation'),
     // require('./plugins/pointer-coarse'),
