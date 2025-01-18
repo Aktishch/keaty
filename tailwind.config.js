@@ -62,6 +62,9 @@ module.exports = {
       yellow: {
         DEFAULT: createColor('yellow'),
       },
+      red: {
+        DEFAULT: createColor('red'),
+      },
     },
     fontFamily: {
       base: 'var(--font-base)',
