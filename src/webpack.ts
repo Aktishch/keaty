@@ -1,5 +1,5 @@
-// import fancybox from './ts/fancybox'
-// import sliderSwiper from './ts/slider-swiper'
+import fancybox from './ts/fancybox'
+import sliderSwiper from './ts/slider-swiper'
 // import yandexMap from './ts/yandex-map'
 // import airDatepicker from './ts/air-datepicker'
 import smoothScroll from './ts/smooth-scroll'
@@ -21,7 +21,7 @@ import animation from './ts/animation'
 import waved from './ts/waved'
 // import movement from './ts/movement'
 // import inverted from './ts/inverted'
-// import listing from './ts/listing'
+import listing from './ts/listing'
 // import accordion from './ts/accordion'
 // import formatBg from './ts/format-bg'
 // import parallax from './ts/parallax'
@@ -53,14 +53,14 @@ import waved from './ts/waved'
 // import game from './ts/game'
 import preloader from './ts/preloader'
 
-// import '@fancyapps/ui/dist/fancybox/fancybox.css'
-// import 'swiper/css/bundle'
+import '@fancyapps/ui/dist/fancybox/fancybox.css'
+import 'swiper/css/bundle'
 // import 'air-datepicker/air-datepicker.css'
 import './scss/main.scss'
 
 window.addEventListener('DOMContentLoaded', ((): void => {
-  // fancybox()
-  // sliderSwiper()
+  fancybox()
+  sliderSwiper()
   // yandexMap()
   // airDatepicker()
   currentTab()
@@ -82,7 +82,7 @@ window.addEventListener('DOMContentLoaded', ((): void => {
   waved()
   // movement()
   // inverted()
-  // listing()
+  listing()
   // accordion()
   // formatBg()
   // parallax()

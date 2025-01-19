@@ -18,3 +18,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.rating {
+  --rating-width: calc(var(--rating-value) * 20%);
+
+  mask: {
+    image: url("../img/pictures/star.svg");
+    size : contain;
+  }
+}
+
+.progress {
+  --progress-width: calc(var(--progress-value) * 20%);
+}
