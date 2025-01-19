@@ -1,0 +1,54 @@
+<%
+  var data = {
+    title: '404',
+    status: true,
+    social: ['img/social/google-play', 'img/social/app-store', 'img/social/ru-store'],
+    nav: [
+      {
+        id: 'home',
+        text: 'Главная'
+      },
+      {
+        id: 'message',
+        text: 'Сообщения'
+      },
+      {
+        id: 'service',
+        text: 'Услуги'
+      },
+      {
+        id: 'bell',
+        text: 'Уведомления'
+      },
+      {
+        id: 'recording',
+        text: 'Записи'
+      }
+    ] 
+  }
+
+  var icon = _.template(require('./components/icon.html').default)
+  var picture = _.template(require('./components/picture.html').default)
+  var loader = _.template(require('./components/loader.html').default)({icon})
+  var header = _.template(require('./includes/header.html').default)({data, icon, picture})
+  var footer = require('./includes/footer.html').default
+%>
+
+<%= header %>
+
+<!-- <%= data.title %> -->
+
+<section class="container grow flex items-center justify-center pt-36">
+  <div class="flex flex-col items-center justify-center w-full lg:max-w-2xl">
+    <div class="w-full mb-8">
+      <%= picture({src: 'img/pictures/404', format: 'svg', className: 'block w-full', data: null}) %>
+    </div>
+    <p class="font-normal text-sm/normal sm:text-base/normal opacity-60 text-center mb-6">
+      Возможно, запрашиваемая Вами страница была перенесена или удалена. <br class="hidden sm:block">
+      Либо Вы допустили небольшую опечатку при вводе адреса.
+    </p>
+    <a class="btn btn-primary btn-lg btn-fill w-full max-w-56" data-waved="light" draggable="false" href="/">Вернуться на главную</a>
+  </div>
+</section>
+
+<%= footer %>

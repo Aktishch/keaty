@@ -1,0 +1,9 @@
+<div class="grid grid-cols-2 sm:flex sm:items-center gap-3 sm:gap-4">
+  <% _.forEach((['img/social/google-play-button', 'img/social/app-store-button', 'img/social/ru-store-button']), (item) => { %>
+  <a class="btn btn-primary rounded-lg" data-waved="light" draggable="false" href="" target="_blank">
+    <div class="w-full">
+      <%= picture({src: item, format: 'svg', className: 'block w-full', data: null}) %>
+    </div>
+  </a>
+  <% }) %>
+</div>

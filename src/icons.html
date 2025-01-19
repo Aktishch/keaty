@@ -1,0 +1,58 @@
+<%
+  var data = {
+    title: 'Иконки',
+    status: true,
+    social: ['img/social/google-play', 'img/social/app-store', 'img/social/ru-store'],
+    nav: [
+      {
+        id: 'home',
+        text: 'Главная'
+      },
+      {
+        id: 'message',
+        text: 'Сообщения'
+      },
+      {
+        id: 'service',
+        text: 'Услуги'
+      },
+      {
+        id: 'bell',
+        text: 'Уведомления'
+      },
+      {
+        id: 'recording',
+        text: 'Записи'
+      }
+    ] 
+  }
+
+  var icon = _.template(require('./components/icon.html').default)
+  var picture = _.template(require('./components/picture.html').default)
+  var loader = _.template(require('./components/loader.html').default)({icon})
+  var title = _.template(require('./components/title.html').default)
+  var header = _.template(require('./includes/header.html').default)({data, icon, picture})
+  var footer = require('./includes/footer.html').default
+%>
+
+<%= header %>
+
+<!-- <%= data.title %> -->
+
+<% var icons = ['loader', 'search', 'recording', 'home', 'message', 'service', 'bell', 'arrow-back', 'arrow-left', 'arrow-right', 'filters', 'star', 'dots', 'heart', 'message', 'telephone', 'settings', 'success'] %>
+
+<section class="container grow flex items-center pt-36">
+  <div class="flex flex-col w-full">
+    <%= title({text: data.title, className: 'mb-4 sm:mb-6', data: null}) %>
+    <ul class="grid grid-cols-2 gap-x-3 gap-y-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+      <% _.forEach((icons), (item) => { %>
+      <li class="flex items-center">
+        <%= icon({id: item, className: 'icon text-base mr-2', data: false}) %>
+        <span class="text-base font-normal leading-none">id: <%= item %></span>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
+</section>
+
+<%= footer %>
